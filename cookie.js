@@ -36,7 +36,7 @@ Cookie = {
 		'path='+    ((!path   || path=='')  ? '/' : path),
 		'domain='+  ((!domain || domain=='')?  window.location.host : domain)];
 
-		if (ttl)         cookie.push(Cookie.hoursToExpireDate(ttl));
+		if (ttl)         cookie.push('expires=' + Cookie.hoursToExpireDate(ttl));
 		if (secure)      cookie.push('secure');
 		return document.cookie = cookie.join('; ');
 	},
