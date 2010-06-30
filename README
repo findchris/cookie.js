@@ -1,6 +1,10 @@
-Cookie.js is a small JavaScript library to manipulate cookies. No external libraries are needed.  It can be found here:
+Cookie.js is a small JavaScript library to manipulate cookies. No external libraries are needed.
 http://code.google.com/p/cookie-js/
 
 It was written by Maxime Haineault (max@centdessin.com).
 
+======
+
 I brought it to github to apply some bugfixes.
+
+-findchris
