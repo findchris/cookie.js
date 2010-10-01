@@ -14,8 +14,8 @@ Cookie = {
 	*/
 	get: function(key) {
 		tmp =  document.cookie.match((new RegExp(key + '=[^;]+($|;)','gi')));
-		if(!tmp || !tmp[0]) return null;
-		else return unescape(tmp[0].substring(key.length+1,tmp[0].length).replace(';','')) || null;
+		if(!tmp || !tmp[0]) { return null; }
+		else { return unescape(tmp[0].substring(key.length+1,tmp[0].length).replace(';','')) || null; }
 	},      
 
 	/** Set a cookie
@@ -34,9 +34,10 @@ Cookie = {
 		'path='+    ((!path   || path=='')  ? '/' : path),
 		'domain='+  ((!domain || domain=='')?  window.location.host : domain)];
 
-		if (ttl)         cookie.push('expires=' + Cookie.hoursToExpireDate(ttl));
-		if (secure)      cookie.push('secure');
-		return document.cookie = cookie.join('; ');
+		if (ttl) { cookie.push('expires=' + Cookie.hoursToExpireDate(ttl)); }
+		if (secure) { cookie.push('secure'); }
+		document.cookie = cookie.join('; ');
+		return document.cookie;
 	},
 
 	/** Unset a cookie
@@ -49,7 +50,7 @@ Cookie = {
 	unset: function(key, path, domain) {
 		path   = (!path   || typeof path   != 'string') ? '' : path;
 		domain = (!domain || typeof domain != 'string') ? '' : domain;
-		if (Cookie.get(key)) Cookie.set(key, '', 'Thu, 01-Jan-70 00:00:01 GMT', path, domain);
+		if (Cookie.get(key)) { Cookie.set(key, '', 'Thu, 01-Jan-70 00:00:01 GMT', path, domain); }
 	},
 
 	/** Return GTM date string of "now" + time to live
@@ -58,7 +59,7 @@ Cookie = {
 	*  @return string
 	*/
 	hoursToExpireDate: function(ttl) {
-		if (parseInt(ttl) == 'NaN' ) return '';
+		if (parseInt(ttl) == 'NaN' ) { return ''; }
 		else {
 			now = new Date();
 			now.setTime(now.getTime() + (parseInt(ttl) * 60 * 60 * 1000));
@@ -88,4 +89,4 @@ Cookie = {
 			console.log(document.cookie.split(';'));
 		}
 	}
-}
+};
